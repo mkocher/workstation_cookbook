@@ -4,5 +4,5 @@ log_level :debug
 Chef::Log::Formatter.show_time = false
 cookbook_path [
   File.expand_path('wschef/cookbooks',chef_dir),
-  File.expand_path('workstation/cookbooks',chef_dir)
+  File.expand_path('workstation_cookbook/cookbooks',chef_dir)
 ]
