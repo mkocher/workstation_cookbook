@@ -1,5 +1,8 @@
-## Recipies in later entries in the cookbook array override earlier entries 
-cookbooks  = [File.expand_path("../cookbooks")]
-cookbooks << File.expand_path("../project_cookbook") if File.exists?("../project_cookbook")
-cookbooks << File.expand_path("../workstation_cookbook") if File.exists?("../workstation_cookbook")
-cookbook_path cookbooks
+chef_dir = File.expand_path('../../..',__FILE__)
+file_cache_path File.expand_path('cache',chef_dir)
+log_level :debug
+Chef::Log::Formatter.show_time = false
+cookbook_path [
+  File.expand_path('wschef/cookbooks',chef_dir),
+  File.expand_path('workstation/cookbooks',chef_dir)
+]
